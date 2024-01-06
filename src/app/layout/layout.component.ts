@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ToolbarComponent } from '../component/toolbar/toolbar.component';
-import { DrawerComponent } from '../component/drawer/drawer.component';
+import { ToolbarComponent } from '../components/toolbar/toolbar.component';
+import { DrawerComponent } from '../components/drawer/drawer.component';
 import { Router } from '@angular/router';
 import { AuthService } from '@services/auth.service';
 

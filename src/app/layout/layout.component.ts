@@ -31,11 +31,10 @@ export class LayoutComponent implements OnInit {
   ngOnInit(): void {
     this.authService.authState$.subscribe((user) => {
       this.user = user;
-      console.log(user);
     });
-    if (!this.user) {
-      this.router.navigate(['/auth/login']);
-    }
+    // if (!this.user) {
+    //   this.router.navigate(['/auth/login']);
+    // }
   }
 
   logout() {

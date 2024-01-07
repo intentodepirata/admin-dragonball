@@ -1,5 +1,5 @@
-import { RouterOutlet } from '@angular/router';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -18,14 +18,16 @@ import { MatIconModule } from '@angular/material/icon';
     MatListModule,
     RouterOutlet,
     MatIconModule,
+    RouterLink,
   ],
   styles: [
     `
       main {
         padding: 10px;
-        height: 100vh;
+        min-height: calc(100vh - 64px);
         width: 100%;
         max-width: 1200px;
+        margin: 0 auto;
       }
     `,
   ],
@@ -33,20 +35,23 @@ import { MatIconModule } from '@angular/material/icon';
     <mat-drawer-container autosize>
       <mat-drawer mode="side" [opened]="isOpen">
         <mat-list>
-          <mat-list-item>
-            <button mat-button><mat-icon>dashboard</mat-icon>Home</button>
-          </mat-list-item>
-          <mat-list-item>
-            <button mat-button><mat-icon>dashboard</mat-icon>Characters</button>
-          </mat-list-item>
-          <mat-list-item>
-            <button mat-button>
-              <mat-icon>dashboard</mat-icon>Transformations
-            </button>
-          </mat-list-item>
-          <mat-list-item>
-            <button mat-button><mat-icon>dashboard</mat-icon>Planets</button>
-          </mat-list-item>
+          <a class="cursor-pointer" mat-list-item routerLink="/admin/home">
+            <mat-icon>dashboard</mat-icon>
+            Home
+          </a>
+          <a mat-list-item routerLink="/admin/characters">
+            <mat-icon>dashboard</mat-icon>
+            Characters
+          </a>
+          <a mat-list-item routerLink="/admin/transformations">
+            <mat-icon>dashboard</mat-icon>
+            Transformations
+          </a>
+          <a mat-list-item routerLink="/admin/planets">
+            <mat-icon>dashboard</mat-icon>
+            Planets
+          </a>
+
           <mat-list-item>
             <button mat-button (click)="logout.emit()">
               <mat-icon>logout</mat-icon>logout
